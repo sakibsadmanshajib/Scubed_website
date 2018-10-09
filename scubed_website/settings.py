@@ -21,11 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['scubed.com.bd']
 
 
 # Application definition
@@ -121,3 +123,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
