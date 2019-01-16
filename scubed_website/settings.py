@@ -27,7 +27,7 @@ SECRET_KEY = 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9'
 DEBUG = True
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = ['scubed.com.bd']
+ALLOWED_HOSTS = ['scubed.com.bd', 'localhost', '127.0.0.1']
 
 
 # Application definition
