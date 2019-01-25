@@ -20,20 +20,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9'
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9')
+# SECRET_KEY = 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = ['scubed.com.bd']
+ALLOWED_HOSTS = ['scubed.com.bd', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
+    'widget_tweaks',
+    'base.apps.BaseConfig',
+    'finance_management.apps.FinanceManagementConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,5 +124,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = ''
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
