@@ -26,8 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=ew@$80oq4-jqcqkrnu!(9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'scubed.com.bd')]
 
