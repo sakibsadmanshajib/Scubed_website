@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=e
 DEBUG = True
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = ['scubed.com.bd', 'localhost']
+ALLOWED_HOSTS = ['scubed.com.bd', 'localhost', 'scubed.herokuapp.com']
 
 
 # Application definition
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,6 +88,9 @@ DATABASES = {
         },
     }
 }
+
+db_from_env = dj_database_url.config() 
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
