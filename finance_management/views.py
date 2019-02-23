@@ -32,26 +32,27 @@ def add_transaction(request):
         form = AddTransaction(request.POST)
         if form.is_valid():
             account = Account.objects.get(id=form.cleaned_data['accountID'])
-            username = request.user.username
-            USER = User.objects.get(username=username)
+            usernm = request.user.username
+            user = User.objects.get(username=usernm)
             print(account)
+            print(user)
             transaction = Transaction(
-                timestamp = form.cleaned_data['timestamp'],
-                account = account.name,
-                user = USER.get_username(),
-                type = form.cleaned_data['type'],
-                amount = form.cleaned_data['amount'],
-                remark = form.cleaned_data['remark']
+                timestamp=form.cleaned_data['timestamp'],
+                account=account.name,
+                user=form.cleaned_data['user'],
+                type=form.cleaned_data['type'],
+                amount=form.cleaned_data['amount'],
+                remark=form.cleaned_data['remark'],
             )
             if form.cleaned_data['type'] == 'Debit':
                 account.balance -= form.cleaned_data['amount']
-                USER.UserExtended.total_debit += form.cleaned_data['amount']
+                user.UserExtended.total_debit += form.cleaned_data['amount']
             elif form.cleaned_data['type'] == 'Credit':
                 account.balance += form.cleaned_data['amount']
-                USER.UserExtended.total_credit += form.cleaned_data['amount']
+                user.UserExtended.total_credit += form.cleaned_data['amount']
             account.save()
             transaction.save()
-            USER.save()
+            user.save()
             messages.success(request, "Successfully added a new transaction!")
             return redirect('finance_management:transaction')
         else:

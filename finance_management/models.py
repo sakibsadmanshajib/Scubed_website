@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils import timezone
 from django.contrib.auth.models import User
 import uuid
@@ -27,6 +29,5 @@ class Transaction(models.Model):
 
 class UserExtended(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    last_transaction = models.CharField(max_length=128, default='none')
     total_debit = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     total_credit = models.DecimalField(max_digits=20, decimal_places=2, default=0)

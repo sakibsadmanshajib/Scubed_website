@@ -15,6 +15,7 @@
                 <label for="timestamp">TimeStamp</label>
                 {% render_field form.timestamp class+="form-control"%}
             </div>
+            <input type='hidden' name="user" value={{ request.user.username }}>
             <div class="form-group">
                 <label for="accountID">Account</label>
                 <select class="form-control" title="account" name="accountID">
