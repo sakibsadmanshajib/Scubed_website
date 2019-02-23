@@ -44,9 +44,8 @@ def comingSoon(request):
             subs = Subscriber(
                 Name=form.cleaned_data['Name'],
                 Email=form.cleaned_data['Email'],
-                Timestamp=form.cleaned_data['Timestamp']
+                Timestamp=form.cleaned_data['Timestamp'],
             )
-
             subs.save()
             messages.success(request, "Thank you.")
             return redirect('base:home')
@@ -59,7 +58,7 @@ def comingSoon(request):
 
 @login_required
 def viewSubscribers(request):
-    allSubscribers = Subscriber.objects.all()
+    allSubscribers = Subscriber.objects.order_by('Timestamp')
 
     return render(request, 'base/subscriber/subscribers.html', {'subscribers' : allSubscribers})
 
