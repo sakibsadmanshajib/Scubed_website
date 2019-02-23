@@ -28,8 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'a8#@5+tagbu+su4ph^(ngm2e9=h7=e
 DEBUG = True
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = ['scubed.com.bd', 'localhost', 'scubed.herokuapp.com']
-
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'scubed.com.bd')]
 
 # Application definition
 
@@ -61,7 +60,7 @@ ROOT_URLCONF = 'scubed.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +80,9 @@ WSGI_APPLICATION = 'scubed.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'my.cnf'),
-        },
+    "default": {
+        "ENGINE" : "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
     }
 }
 
@@ -130,11 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static/"),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Login URLs
 LOGIN_REDIRECT_URL = ''
