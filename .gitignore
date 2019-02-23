@@ -114,3 +114,6 @@ dmypy.json
 *.cnf
 *.sqlite3
 *.bak
+\.idea/
+migrations/
+.vscode/

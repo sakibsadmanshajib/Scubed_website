@@ -1,0 +1,8 @@
+Django
+mysql-connector-python
+mysqlclient
+gunicorn
+django-heroku
+whitenoise
+dj-database-url
+django-widget-tweaks

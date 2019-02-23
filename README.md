@@ -1,1 +1,1 @@
-# scubed_website
+# scubed

@@ -1,0 +1,1 @@
+web: gunicorn scubed.wsgi --log-file -
