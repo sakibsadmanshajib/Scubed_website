@@ -19,9 +19,9 @@ def profile(request, username):
 
     if user_transaction is None:
         messages.error(request, "No transaction exists in the system.")
-        return render(request, 'profile.html', {'profile': profile, 'user_transaction': None})
+        return render(request, 'user/profile.html', {'profile': profile, 'user_transaction': None})
     else:
-        return render(request, 'profile.html', {'profile': profile, 'user_transaction': user_transaction})
+        return render(request, 'user/profile.html', {'profile': profile, 'user_transaction': user_transaction})
 
 @user_passes_test(lambda u: u.is_staff)
 def add_transaction(request):
@@ -108,17 +108,12 @@ def transaction(request):
 
 @user_passes_test(lambda u: u.is_staff)
 def account_details(request, account_id):
-    account = Account.objects.get(id=account_id)
-    all_transaction_list = Transaction.objects.all()
+    acc = Account.objects.get(id=account_id)
+    transaction_list = Transaction.objects.filter(account=acc.name)
     USER = User.objects.all()
 
-    account_transaction = []
-    for transaction in all_transaction_list:
-        if transaction.account == account.name:
-            account_transaction.append(transaction)
-
-    if account_transaction is None:
+    if transaction_list is None:
         messages.error(request, "No transaction exists in the system.")
         return render(request, 'account/account_details.html', {'account': account, 'account_transaction': None, 'users': USER})
     else:
-        return render(request, 'account/account_details.html', {'account': account, 'account_transaction': account_transaction, 'users': USER})
+        return render(request, 'account/account_details.html', {'account': account, 'account_transaction': transaction_list, 'users': USER})
