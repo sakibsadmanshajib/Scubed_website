@@ -46,10 +46,10 @@ def add_transaction(request):
             )
             if form.cleaned_data['type'] == 'Debit':
                 account.balance -= form.cleaned_data['amount']
-                user.UserExtended.total_debit += form.cleaned_data['amount']
+                user.extended.total_debit += form.cleaned_data['amount']
             elif form.cleaned_data['type'] == 'Credit':
                 account.balance += form.cleaned_data['amount']
-                user.UserExtended.total_credit += form.cleaned_data['amount']
+                user.extended.total_credit += form.cleaned_data['amount']
             account.save()
             transaction.save()
             user.save()
