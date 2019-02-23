@@ -109,11 +109,12 @@ def transaction(request):
 @user_passes_test(lambda u: u.is_staff)
 def account_details(request, account_id):
     acc = Account.objects.get(id=account_id)
-    transaction_list = Transaction.objects.filter(account=acc.name)
+    accnm = acc.name
+    transaction_list = Transaction.objects.filter(account__icontains=accnm)
     USER = User.objects.all()
 
     if transaction_list is None:
         messages.error(request, "No transaction exists in the system.")
-        return render(request, 'account/account_details.html', {'account': account, 'account_transaction': None, 'users': USER})
+        return render(request, 'account/account_details.html', {'account': acc, 'account_transaction': None, 'users': USER})
     else:
-        return render(request, 'account/account_details.html', {'account': account, 'account_transaction': transaction_list, 'users': USER})
+        return render(request, 'account/account_details.html', {'account': acc, 'account_transaction': transaction_list, 'users': USER})
