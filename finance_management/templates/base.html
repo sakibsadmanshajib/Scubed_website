@@ -76,7 +76,8 @@
         <div class="nav">
             <div class="link"><a href="{% url 'finance_management:account' %}">Accounts</a></div>
             <div class="link"><a href="{% url 'finance_management:transaction' %}">Transaction</a></div>
-            <!-- <div class="link"><a href="{% url 'finance_management:accounts' %}"> Contact </a></div> -->
+            <div class="link">Hey {{ request.user.username }}</div>
+            <!-- <div class="link"><a href="{% url 'finance_management:account' %}"> Contact </a></div> -->
         </div>
     </div>
 
