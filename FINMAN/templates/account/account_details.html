@@ -44,7 +44,7 @@
                     <td>{{ transaction.timestamp }}</td>
                     <td>{% for user in users %}
                             {% if transaction.user == user.username %}
-                            <a href="{% url 'finance_management:profile' user.username %}">{{ transaction.user }}</a>
+                            <a href="{% url 'FINMAN:profile' user.username %}">{{ transaction.user }}</a>
                             {% else %}
                             {{ transaction.user }}
                             {% endif %}

@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('base.urls')),
-    path('finman/', include('finance_management.urls')),
+    path('finman/', include('FINMAN.urls')),
+    path('lara/', include('LARA.urls')),
 
 ]
 

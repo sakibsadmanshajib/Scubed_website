@@ -1,0 +1,19 @@
+{% if screen_list %}
+<h1>Screen</h1>
+<table border='1'>
+    <tr>
+        <th>Diagonal Size</th>
+        <th>Category</th>
+        <th>Resolution</th>
+    </tr>
+    {% for screen in screen_list %}
+    <tr>
+        <td>{{ screen.diagonal_size }}</td>
+        <td>{{ screen.category }}</td>
+        <td>{{ screen.resolution }}</td>
+    </tr>
+    {% endfor %}
+{% else %}
+<p align="center">No screen was found!</p>
+{% endif %}
+</table>

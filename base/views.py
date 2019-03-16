@@ -20,7 +20,7 @@ def user_login(request):
                 return redirect(next)
             else:
                 messages.success(request, "You have successfully logged in!")
-                return redirect('finance_management:account')
+                return redirect('FINMAN:account')
         else:
             messages.error(request, "Provide valid credentials.")
             return render(request, 'auth/login.html')

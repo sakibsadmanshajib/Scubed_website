@@ -74,10 +74,10 @@
             <h3>S Cubed</h3>
         </div>
         <div class="nav">
-            <div class="link"><a href="{% url 'finance_management:account' %}">Accounts</a></div>
-            <div class="link"><a href="{% url 'finance_management:transaction' %}">Transaction</a></div>
+            <div class="link"><a href="{% url 'FINMAN:account' %}">Accounts</a></div>
+            <div class="link"><a href="{% url 'FINMAN:transaction' %}">Transaction</a></div>
             <div class="link">Hey {{ request.user.username }}</div>
-            <!-- <div class="link"><a href="{% url 'finance_management:account' %}"> Contact </a></div> -->
+            <!-- <div class="link"><a href="{% url 'FINMAN:account' %}"> Contact </a></div> -->
         </div>
     </div>
 
@@ -90,10 +90,10 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" style="margin: 0 15px">
-                    <a class="nav-link" href="{% url 'finance_management:account' %}">Accounts</a>
+                    <a class="nav-link" href="{% url 'FINMAN:account' %}">Accounts</a>
                 </li>
                 <li class="nav-item" style="margin: 0 15px">
-                    <a class="nav-link" href="{% url 'finance_management:transaction' %}">Transaction</a>
+                    <a class="nav-link" href="{% url 'FINMAN:transaction' %}">Transaction</a>
                 </li>
             </ul>
             <div class="nav-item">Hey {{ request.user.username }}</div>

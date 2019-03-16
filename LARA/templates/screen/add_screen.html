@@ -1,0 +1,22 @@
+<h1>Add Screen</h1>
+<form action= "{% url 'LARA:add_screen' %}" method="POST">
+    {% csrf_token %}
+    <label for="diagonal_size">Diaognal Size</label>
+    <select title="diagonal_size" name="diagonal_size">
+        <option>10.1"</option>
+        <option>13.1"</option>
+        <option>14"</option>
+        <option>15.6"</option>
+        <option>17.3"</option>
+    </select>
+    <label for='category'>Category</label>
+    {% render_field form.category %}
+    <label for="resolution">Resolution</label>
+    <select title="resolution" name="resolution">
+        <option>1280 * 720</option>
+        <option>1366 * 768</option>
+        <option>1920 * 1080</option>
+        <option>2560 * 1440</option>
+        <option>3840 * 2160</option>
+    </select>
+</form>

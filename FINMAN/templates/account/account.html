@@ -6,7 +6,7 @@
 
     <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
 
-            <a type="button" class="btn col-xl-2 col-lg-2 col-md-4 col-sm-5 col-5" style="margin: 10px; background-color: #373839; font-weight: bold" href="{% url 'finance_management:add_account' %}">
+            <a type="button" class="btn col-xl-2 col-lg-2 col-md-4 col-sm-5 col-5" style="margin: 10px; background-color: #373839; font-weight: bold" href="{% url 'FINMAN:add_account' %}">
                 Add Account
             </a>
     </div>
@@ -23,7 +23,7 @@
                 </tr>
                 {% for account in account_list %}
                     <tr>
-                    <th><a href="{% url 'finance_management:account_details' account.id %}">{{ account.name }}</a></th>
+                    <th><a href="{% url 'FINMAN:account_details' account.id %}">{{ account.name }}</a></th>
                     <td>{{ account.balance }}</td>
                     <td>{{ account.currency }}</td>
                     <td>{{ account.description }}</td>

@@ -54,10 +54,10 @@ def add_transaction(request):
             transaction.save()
             user.save()
             messages.success(request, "Successfully added a new transaction!")
-            return redirect('finance_management:transaction')
+            return redirect('FINMAN:transaction')
         else:
             messages.warning(request, "Couldn't add new transaction")
-            return redirect('finance_management:transaction')
+            return redirect('FINMAN:transaction')
 
     else:
         form = AddTransaction()
@@ -76,10 +76,10 @@ def add_account(request):
             )
             account.save()
             messages.success(request, "Successfully added a new account!")
-            return redirect('finance_management:account')
+            return redirect('FINMAN:account')
         else:
             messages.warning(request, "Couldn't add new account")
-            return redirect('finance_management:account')
+            return redirect('FINMAN:account')
 
     else:
         form = AddAccount()

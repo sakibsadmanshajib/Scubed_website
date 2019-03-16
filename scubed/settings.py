@@ -36,7 +36,8 @@ ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'scubed.com.bd')]
 INSTALLED_APPS = [
     'widget_tweaks',
     'base.apps.BaseConfig',
-    'finance_management.apps.FinanceManagementConfig',
+    'FINMAN.apps.FinmanConfig',
+    'LARA.apps.LaraConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
